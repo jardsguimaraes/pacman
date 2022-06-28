@@ -67,7 +67,8 @@ class Cenario(ElementoJogo):
             self.pintar_jogando(tela)
             self.pintar_vitoria(tela)
 
-    def pintar_texto_centro(self, tela, texto):
+    @staticmethod
+    def pintar_texto_centro(tela, texto):
         texto_img = fonte.render(texto, True, AMARELO)
         texto_x = (tela.get_width() - texto_img.get_width()) // 2
         texto_y = (tela.get_height() - texto_img.get_height()) // 2
@@ -130,8 +131,8 @@ class Cenario(ElementoJogo):
             if len(direcoes) >= 3:
                 movivel.esquina(direcoes)
             if isinstance(movivel, Fantasma) and \
-                movivel.linha == self.pacman.linha and \
-                movivel.coluna == self.pacman.coluna:
+                    movivel.linha == self.pacman.linha and \
+                    movivel.coluna == self.pacman.coluna:
                 self.vidas -= 1
                 if self.vidas <= 0:
                     self.estado = GAME_OVER

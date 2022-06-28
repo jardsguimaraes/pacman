@@ -60,7 +60,6 @@ class Pacman(ElementoJogo):
         self.linha_intencao = self.linha
         self.coluna_intencao = self.coluna
 
-
     def pintar(self, tela):
         # Desenhar corpo do Pacman
         pygame.draw.circle(tela, AMARELO, (self.centro_x, self.centro_y), self.raio, 0)
